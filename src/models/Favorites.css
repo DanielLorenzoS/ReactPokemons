@@ -1,0 +1,13 @@
+.favorites-section {
+    margin-top: 22vh;
+    height: 100vh;
+    width: 100%;
+    background: #007525;
+}
+.yourFav {
+    margin: 40px;
+    width: 100%;
+    font-family: serif;
+    font-size: 40px;
+    text-align: center;
+}

@@ -1,0 +1,40 @@
+h5 {
+    color: white;
+}
+.choose {
+    margin: 40px;
+    font-family: serif;
+    font-size: 40px;
+    text-align: center;
+}
+.pokemons-section {
+    width: 100%;
+    height: 180vh;
+    background: transparent;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    
+}
+figure {
+    display: block;
+    height: 34vh;
+    width: 65%;
+    background: rgb(23, 62, 252);
+    padding: 10px;
+    border-radius: 5%;
+    text-align: center;
+}
+.title, .abilities {
+    text-transform: capitalize;
+}
+figure img {
+    min-height: 120px;
+}
+.btnAdd {
+    border: none;
+    padding: 8px;
+    background: #28a745;
+    color: white;
+    border-radius: 8px;
+    font-size: 18px;
+}
