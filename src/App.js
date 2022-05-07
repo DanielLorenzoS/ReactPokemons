@@ -1,19 +1,20 @@
-import { useState } from 'react';
-import './App.css';
-import Header from './components/Header';
-import Data from './models/Data';
-import Favorites from './models/Favorites';
-
+import "./App.css";
+import Header from "./components/Header";
+import { DataProvider } from "./context/DataContext";
+import { RemoveDataProvider } from "./context/RemoveContext";
+import Data from "./models/Data";
+import Favorites from "./models/Favorites";
 
 function App() {
-
-  const [counter, setCounter] = useState(0);
-  const HandleCounter = () => useState(counter);
   return (
     <>
-    <Header/>
-    <Data state={counter}/>
-    <Favorites counter={counter}/>
+      <Header />
+      <DataProvider>
+        <RemoveDataProvider>
+          <Data/>
+          <Favorites />
+        </RemoveDataProvider>
+      </DataProvider>
     </>
   );
 }

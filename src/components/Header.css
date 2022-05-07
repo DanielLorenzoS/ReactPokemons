@@ -1,22 +1,30 @@
-section {
-    font-size: 18px;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgb(0, 11, 73);
+.header-section {
+  width: 100%;
+  font-size: 18px;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(0, 11, 73);
+  position: fixed;
+  z-index: 2;
 }
 ul {
-    display: flex;
-    justify-content: space-between;
-}
-ul h1:hover {
-    cursor: pointer;
-    color: rgb(74, 102, 255);
+  display: flex;
+  justify-content: space-between;
 }
 .logo {
-    cursor: default;
+  margin-left: 15px;
+  cursor: default;
 }
-h1 {
-    margin: 15px;
+ul a {
+  text-decoration-line: none;
+}
+ul a h1 {
+  margin: 15px;
+  color: #fff;
+}
+ul a h1:hover {
+  cursor: pointer;
+  color: rgb(74, 102, 255);
 }

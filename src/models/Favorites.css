@@ -3,11 +3,31 @@
     height: 100vh;
     width: 100%;
     background: #007525;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
-.yourFav {
+.not {
+    display: block;
     margin: 40px;
     width: 100%;
     font-family: serif;
     font-size: 40px;
     text-align: center;
+}
+.favFigure {
+    display: block;
+    height: 34vh;
+    width: 65%;
+    background: rgb(23, 62, 252);
+    padding: 10px;
+    border-radius: 5%;
+    text-align: center;
+}
+.btnRemove {
+    border: none;
+    padding: 8px;
+    background: #dc3545;
+    color: white;
+    border-radius: 8px;
+    font-size: 18px;
 }

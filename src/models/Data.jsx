@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import DataContext from "../context/DataContext";
 import "./Data.css";
 
-function Pokemon({ id, avatar, name, abilities }, props) {
-  const [number, setNumber] = useState(id)
-  let getId = () => {
-    console.log(number)
-    {props.estado = number}
-  }
+function Pokemon({ id, avatar, name, abilities }) {
+  const [number, setNumber] = useState(id);
+  const { setIdNumber } = useContext(DataContext);
+
   return (
     <figure>
       <img src={avatar} alt={name} />
       <h1 className="title">{name}</h1>
       <h3 className="abilities">{abilities.replace(",", " ")}</h3>
-      <button className="btnAdd" id={id} onClick={getId} >Add favorites</button>
+      <button className="btnAdd" onClick={() => setIdNumber(name)}>
+        Add favorites
+      </button>
     </figure>
   );
 }
 
-export default function Data(props) {
+export default function Data() {
   const [Pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
@@ -42,15 +43,15 @@ export default function Data(props) {
 
   return (
     <>
-      <h1 className="choose">Choose your favorite...</h1>
       <section className="pokemons-section">
+        {/* <h1 className="choose">Choose your favorite...</h1> */}
         {Pokemons.length === 0 ? (
           <h3>Cargando Tarjetas...</h3>
         ) : (
           Pokemons.map((e) => (
             <Pokemon
               key={e.id}
-              id = {e.id}
+              id={e.id}
               name={e.name}
               avatar={e.avatar}
               abilities={e.abilities + " "}
