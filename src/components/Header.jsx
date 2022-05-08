@@ -12,8 +12,9 @@ export default function Header() {
         </div>
         <nav>
           <ul>
-            <Link to="/data"><h1 className="h1-nav">Home</h1></Link>
-            <Link to="/favorites"><h1 className="h1-nav">Favorites</h1></Link>
+            <Link to="/"><h1 className="h1-nav">Home</h1></Link>
+            <Link to="/data"><h1 className="h1-nav">Tarjetas</h1></Link>
+            <Link to="/favorites"><h1 className="h1-nav">Favoritas</h1></Link>
           </ul>
         </nav>
       </section>
