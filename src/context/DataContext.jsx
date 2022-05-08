@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 
 const DataContext = createContext();
-let initialId = "";
+let initialId = [];
 
 const DataProvider = ({children}) => {
 

@@ -3,15 +3,17 @@ import DataContext from "../context/DataContext";
 import "./Data.css";
 
 function Pokemon({ id, avatar, name, abilities }) {
-  const [number, setNumber] = useState(id);
-  const { setIdNumber } = useContext(DataContext);
+  const { idNumber, setIdNumber } = useContext(DataContext);
 
   return (
     <figure>
       <img src={avatar} alt={name} />
       <h1 className="title">{name}</h1>
       <h3 className="abilities">{abilities.replace(",", " ")}</h3>
-      <button className="btnAdd" onClick={() => setIdNumber(name)}>
+      <button className="btnAdd" onClick={() => {
+        setIdNumber([...idNumber, name])
+        alert(`Se ha añadido ${name} a favoritos`)
+      }}>
         Add favorites
       </button>
     </figure>
@@ -58,6 +60,9 @@ export default function Data() {
             />
           ))
         )}
+        {/* <div className="new">
+        <h3 className="act">Se ha añadido a favoritos</h3>
+        </div> */}
       </section>
     </>
   );

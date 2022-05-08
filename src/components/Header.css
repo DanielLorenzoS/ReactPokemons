@@ -17,14 +17,12 @@ ul {
   margin-left: 15px;
   cursor: default;
 }
-ul a {
-  text-decoration-line: none;
-}
-ul a h1 {
+.h1-nav {
   margin: 15px;
   color: #fff;
+  text-decoration: none;
 }
-ul a h1:hover {
+.h1-nav:hover {
   cursor: pointer;
   color: rgb(74, 102, 255);
 }

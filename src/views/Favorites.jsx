@@ -8,7 +8,9 @@ function MyPokemon({ id, avatar, name, abilities }) {
   return (
     <figure className="favFigure">
       <img src={avatar} alt={name} />
-      <h1 className="title">{name} {id}</h1>
+      <h1 className="title">
+        {name} {id}
+      </h1>
       <h3 className="abilities">{abilities.replace(",", " ")}</h3>
       <button className="btnRemove" id={id} onClick={() => setIdRemove(id)}>
         Remove favorite
@@ -19,36 +21,34 @@ function MyPokemon({ id, avatar, name, abilities }) {
 
 export default function Favorites() {
   const [Pokemons, setPokemons] = useState([]);
-  const [newId, setNewId] = useState(1);
   const { idNumber } = useContext(DataContext);
   const { idRemove } = useContext(RemoveContext);
 
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${idNumber}`)
-      .then((res) => res.json())
-      .then((json) => {
-        let MyPokemon = {
-          id: newId,
-          name: json.name,
-          avatar: json.sprites.front_default,
-          abilities: json.abilities.map((e) => e.ability.name),
-        };
-        setNewId(newId + 1);
-        setPokemons((Pokemons) => [...Pokemons, MyPokemon]);
-      });
+    idNumber.map((e) => {
+      fetch(`https://pokeapi.co/api/v2/pokemon/${e}`)
+        .then((res) => res.json())
+        .then((json) => {
+          let MyPokemon = {
+            id: json.id,
+            name: json.name,
+            avatar: json.sprites.front_default,
+            abilities: json.abilities.map((e) => e.ability.name),
+          };
+          setPokemons((Pokemons) => [...Pokemons, MyPokemon]);
+        });
+    });
   }, [idNumber]);
 
   useEffect(() => {
-    Pokemons.map(e => {
+    console.log(idRemove);
+    Pokemons.map((e) => {
       if (e.id === idRemove) {
-        let newArray = Pokemons.filter(item => item.id !== idRemove)
+        let newArray = Pokemons.filter((item) => item.id !== idRemove);
         setPokemons(newArray);
       }
-    })
-    
-  
-  }, [idRemove])
-  
+    });
+  }, [idRemove]);
 
   return (
     <>

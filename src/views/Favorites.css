@@ -1,5 +1,5 @@
 .favorites-section {
-    margin-top: 22vh;
+    margin-top: 10vh;
     height: 100vh;
     width: 100%;
     background: #007525;
@@ -24,7 +24,6 @@
     text-align: center;
 }
 .btnRemove {
-    border: none;
     padding: 8px;
     background: #dc3545;
     color: white;
